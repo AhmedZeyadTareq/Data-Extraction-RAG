@@ -4,3 +4,5 @@ openai
 tiktoken
 Pillow
 llama_parse
+matplotlib
+plotly
