@@ -1,0 +1,6 @@
+markitdown[all]
+streamlit
+openai
+tiktoken
+Pillow
+llama_parse
