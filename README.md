@@ -1,6 +1,3 @@
-Here’s a **clean, professional, and nicely structured** `README.md` in Markdown, tailored exactly as you asked:
-
-````markdown
 # 💡 Data-Extraction-RAG
 
 An intelligent Streamlit application to **extract, reorganize, and explore content** from various document formats  
@@ -92,12 +89,3 @@ These functions are modular and can fit in any Python project.
 
 MIT License © Ahmed Zeyad Tareq
 
-```
-
-If you'd like, I can also:
-✅ Add a badge section (build passing, license, Streamlit deploy)  
-✅ Generate a cover image/banner  
-✅ Help write an extended usage guide or API reference  
-
-Just let me know! 🚀
-```
