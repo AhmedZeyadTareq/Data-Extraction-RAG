@@ -1,15 +1,3 @@
-Your draft is already very clean!
-Here’s a **polished & slightly improved version** with:
-
-* better Markdown formatting
-* consistent spacing
-* corrected note about `.env`
-* clear code block endings
-* small English refinements for clarity
-
----
-
-````markdown
 # 💡 Data-Extraction-RAG
 
 An intelligent Streamlit application to **extract, reorganize, and explore content** from various document formats,  
@@ -105,14 +93,4 @@ These functions can easily be integrated into other Python projects.
 
 MIT License © Ahmed Zeyad Tareq
 
-```
 
----
-
-✅ Feel free to copy–paste it directly,  
-and tell me if you'd also like:
-- badges (license, Streamlit, Python)
-- a project logo/banner
-- a short demo video script  
-I can draft those too! 🚀
-```
