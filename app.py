@@ -155,14 +155,10 @@ with st.sidebar:
     st.markdown("</div>", unsafe_allow_html=True)
     
     # Developer info
-    st.markdown("""
-    <div class="sidebar-section">
-        <h3>👨‍💻 Developer</h3>
-        <strong>Eng. Ahmed Zeyad Tareq</strong><br>
-        🎓 Master's in AI Engineering<br>
-        📊 Data Scientist & AI Developer
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("### 👨‍💻 Developer")
+    st.markdown("**Eng. Ahmed Zeyad Tareq**")
+    st.markdown("🎓 Master's in AI Engineering")
+    st.markdown("📊 Data Scientist & AI Developer")
     
     # Social links
     st.markdown("""
