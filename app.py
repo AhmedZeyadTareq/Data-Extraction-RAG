@@ -142,8 +142,6 @@ st.markdown("""
 
 # ==== Sidebar ====
 with st.sidebar:
-    st.markdown('<div class="sidebar-section">', unsafe_allow_html=True)
-    
     # Logo section
     logo_link = "formal image.jpg"
     if os.path.exists(logo_link):
@@ -152,7 +150,8 @@ with st.sidebar:
     else:
         st.warning("⚠️ Logo not found. Please check the logo path.")
     
-    st.markdown("</div>", unsafe_allow_html=True)
+    # Add some spacing
+    st.markdown("---")
     
     # Developer info
     st.markdown("### 👨‍💻 Developer")
@@ -160,12 +159,11 @@ with st.sidebar:
     st.markdown("🎓 Master's in AI Engineering")
     st.markdown("📊 Data Scientist & AI Developer")
     
+    # Add some spacing
+    st.markdown("---")
+    
     # Social links
-    st.markdown("""
-    <div class="sidebar-section">
-        <h4>🔗 Connect</h4>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("#### 🔗 Connect")
     
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -175,12 +173,11 @@ with st.sidebar:
     with col3:
         st.markdown("[Kaggle](https://www.kaggle.com/ahmedzeyadtareq)")
     
+    # Add some spacing
+    st.markdown("---")
+    
     # App info
-    st.markdown("""
-    <div class="sidebar-section">
-        <h4>📊 App Statistics</h4>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("#### 📊 App Statistics")
     
     # Initialize session state for statistics
     if "files_processed" not in st.session_state:
@@ -188,11 +185,39 @@ with st.sidebar:
     if "questions_answered" not in st.session_state:
         st.session_state.questions_answered = 0
     
+    # Display metrics
     col1, col2 = st.columns(2)
     with col1:
         st.metric("Files Processed", st.session_state.files_processed)
     with col2:
         st.metric("Questions Answered", st.session_state.questions_answered)
+    
+    # Add some spacing
+    st.markdown("---")
+    
+    # Additional app info
+    st.markdown("#### ℹ️ About")
+    st.markdown("This app extracts and analyzes content from various document formats using AI.")
+    st.markdown("**Features:**")
+    st.markdown("• Document extraction")
+    st.markdown("• Content reorganization")
+    st.markdown("• AI-powered Q&A")
+    st.markdown("• Data visualization")
+    
+    # Add some spacing
+    st.markdown("---")
+    
+    # Footer info
+    st.markdown("#### 🚀 Tech Stack")
+    st.markdown("• **Frontend:** Streamlit")
+    st.markdown("• **AI:** OpenAI GPT-4")
+    st.markdown("• **Parser:** LlamaParse")
+    st.markdown("• **Visualization:** Plotly")
+    
+    # Copyright
+    st.markdown("---")
+    st.markdown("*© 2024 Ahmed Zeyad Tareq*")
+    st.markdown("*All rights reserved*")
 
 # ==== Main Content ====
 # File Upload Section
