@@ -2,6 +2,7 @@
 
 An intelligent Streamlit application to **extract, reorganize, and explore content** from various document formats  
 using advanced AI techniques like RAG (Retrieval-Augmented Generation), visualization, and markdown structuring.
+[Try it live](https://dataextractionrag-ahmedzeyadtareq.streamlit.app/)
 
 ---
 
@@ -35,15 +36,17 @@ Built to help researchers, analysts, and anyone who wants to explore and underst
 ```bash
 git clone https://github.com/AhmedZeyadTareq/Data-Extraction-RAG.git
 cd Data-Extraction-RAG
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
 ````
 
-> Make sure you set your API keys in the environment:
+> Make sure you set your .env contains API keys in the environment:
 >
 > ```
-> export OPENAI_API_KEY=your_key
-> export LLAMA_API_PARSE=your_key
+> OPENAI_API_KEY=your_key
+> LLAMA_API_PARSE=your_key
 > ```
 
 ---
@@ -51,7 +54,7 @@ streamlit run app.py
 ### 🌐 Use the deployed app
 
 If you just want to try it out quickly, visit the deployed Streamlit app:
-👉 *[Click here to open the app](https://YOUR-STREAMLIT-APP-LINK)*
+👉 *[Click here to open the app](https://dataextractionrag-ahmedzeyadtareq.streamlit.app/)*
 
 ---
 
