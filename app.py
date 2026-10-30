@@ -24,8 +24,21 @@ import json
 
 # ==== Config ====
 LLAMA_API = os.getenv("LLAMA_API_PARSE")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-LLM_MODEL = "gpt-4.1-mini"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-4.1-mini")
+
+
+def get_client() -> OpenAI:
+    """OpenAI-compatible client pointed at OpenRouter"""
+    return OpenAI(
+        base_url=OPENROUTER_BASE_URL,
+        api_key=OPENROUTER_API_KEY,
+        default_headers={
+            "HTTP-Referer": "https://dataextractionrag-ahmedzeyadtareq.streamlit.app/",
+            "X-Title": "Smart Content Extraction",
+        },
+    )
 
 # ==== Page Configuration ====
 st.set_page_config(
@@ -210,7 +223,7 @@ with st.sidebar:
     # Footer info
     st.markdown("#### 🚀 Tech Stack")
     st.markdown("• **Frontend:** Streamlit")
-    st.markdown("• **AI:** OpenAI GPT-4")
+    st.markdown("• **AI:** OpenRouter")
     st.markdown("• **Parser:** LlamaParse")
     st.markdown("• **Visualization:** Plotly")
     
@@ -278,16 +291,16 @@ def convert_file(path: str) -> str:
         return ""
 
 def reorganize_markdown(raw: str) -> str:
-    """Reorganize markdown via OpenAI"""
-    client = OpenAI()
+    """Reorganize markdown via OpenRouter"""
+    client = get_client()
     completion = client.chat.completions.create(
         model=LLM_MODEL,
         messages=[
-            {"role": "user", "content": f"reorganize the following content:\n {raw}"},
             {"role": "system", "content": (
                 "You are a reorganizer. Return the content in Markdown, keeping it identical. "
                 "Do not delete or replace anything—only reorganize for better structure. your response the content direct without (``` ```)."
-            )}
+            )},
+            {"role": "user", "content": f"reorganize the following content:\n {raw}"}
         ]
     )
     print("===Reorganized Done===")
@@ -295,8 +308,8 @@ def reorganize_markdown(raw: str) -> str:
 
 def rag(con: str, question: str) -> tuple[str, dict]:
     """Answer questions from provided content and detect visualization requests"""
-    client = OpenAI()
-    
+    client = get_client()
+
     # Enhanced system prompt to detect visualization requests
     system_prompt = f"""You are an assistant that answers questions from provided content. 
     
@@ -314,8 +327,8 @@ def rag(con: str, question: str) -> tuple[str, dict]:
     completion = client.chat.completions.create(
         model=LLM_MODEL,
         messages=[
-            {"role": "user", "content": question},
-            {"role": "system", "content": system_prompt}
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": question}
         ]
     )
     
@@ -637,7 +650,7 @@ if uploaded_file:
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #666; padding: 1rem;">
-    <p>🚀 Built with Streamlit | 💡 Powered by OpenAI & LlamaParse | 🎯 Smart Content Extraction</p>
+    <p>🚀 Built with Streamlit | 💡 Powered by OpenRouter & LlamaParse | 🎯 Smart Content Extraction</p>
     <p><small>© 2024 Ahmed Zeyad Tareq - All rights reserved</small></p>
 </div>
 """, unsafe_allow_html=True)

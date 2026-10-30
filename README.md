@@ -46,8 +46,10 @@ streamlit run app.py
 > **Note:** Make sure you create a `.env` file containing your API keys:
 >
 > ```env
-> OPENAI_API_KEY=your_openai_key
+> OPENROUTER_API_KEY=your_openrouter_key
 > LLAMA_API_PARSE=your_llama_key
+> # Optional: any model from https://openrouter.ai/models (default: openai/gpt-4.1-mini)
+> LLM_MODEL=openai/gpt-4.1-mini
 > ```
 
 ---
